@@ -1,0 +1,109 @@
+@font-face {
+  font-family: 'Newyear Coffee';
+  src: url('fonts/NewyearCoffee.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Newyear Coffee', sans-serif;
+  background-image: url('Caves.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.aboutme-card {
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 600px;
+  width: 100%;
+  background: rgba(25, 25, 45, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0d6efd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+/* --- OPTIMIZATION: FLUID TYPOGRAPHY --- */
+h1 {
+  /* It will be 2rem on small screens, 3.2rem on large screens, and scale smoothly in between */
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: 3px solid #0d6efd;
+  white-space: nowrap;
+  animation: typing 2s steps(40, end), blinkCursor 0.75s step-end infinite;
+  font-family: 'Newyear Coffee', sans-serif;
+  max-width: fit-content;
+  margin: 1rem auto 0 auto;
+  /* --- OPTIMIZATION: FLUID TYPOGRAPHY --- */
+  /* It will be 1rem on small screens, 1.25rem on large screens, and scale smoothly */
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blinkCursor {
+  0%, 100% { border-color: transparent }
+  50% { border-color: #0d6efd }
+}
+
+.col a i {
+  color: #fff;
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.col a:hover i {
+  transform: scale(1.25);
+}
+
+/* Keep brand colors on hover for a nice touch */
+.col a:hover .fa-youtube { color: #FF0000; }
+.col a:hover .fa-reddit { color: #FF4500; }
+.col a:hover .fa-tiktok { color: #fff; }
+.col a:hover .fa-discord { color: #5865F2; }
+
+
+.footer {
+  position: absolute;
+  bottom: 10px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* --- OPTIMIZATION: MEDIA QUERY FOR SMALL DEVICES --- */
+@media (max-width: 576px) {
+  /* On small screens, reduce the card's padding to give content more space */
+  .aboutme-card {
+    padding: 20px;
+  }
+}
